@@ -1,0 +1,42 @@
+apply plugin: 'java'
+
+group 'SchipholTestProjectGroup'
+version '1.0-SNAPSHOT'
+
+// Versioning of dependencies
+wrapper.gradleVersion = '5.5.1'
+def cucumberVersion = '4.7.1'
+def junitVersion = '5.5.1'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    //testCompile group: 'junit', name: 'junit', version: '5.5.1'
+    testCompile group: 'org.junit.jupiter', name: 'junit-jupiter-api', version: '5.5.1'
+    compile 'org.testng:testng:6.9.10'
+    compile 'org.seleniumhq.selenium:selenium-java:3.4.0'
+    //compile 'info.cukes:cucumber-java8:1.2.5'
+    compile group: 'io.cucumber', name: 'cucumber-testng', version: '4.7.1'
+    //compile 'info.cukes:cucumber-testng:1.2.5'
+    compile 'com.beust:jcommander:1.69'
+    compile 'com.thoughtworks.xstream:xstream:1.4.9'
+    compile 'com.google.code.gson:gson:2.8.0'
+    compile 'ch.qos.logback:logback-classic:1.2.2'
+    compile group: 'io.cucumber', name: 'cucumber-java', version: '4.7.1'
+
+
+
+    testImplementation "io.cucumber:cucumber-java:4.7.1"
+    testImplementation "io.cucumber:cucumber-junit:4.7.1"
+
+    testImplementation "org.junit.jupiter:junit-jupiter-api:5.5.1"
+    testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:5.5.1"
+    testRuntimeOnly "org.junit.vintage:junit-vintage-engine:5.5.1"
+}
+
+test {
+    useJUnitPlatform()
+}
